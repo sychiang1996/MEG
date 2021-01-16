@@ -4,7 +4,7 @@ import LoadingScreen from './app/screens/LoadingScreen';
 import Megan from './app/screens/Megan';
 
 export default function App() {
-  return <Megan />;
+  return <LoadingScreen />;
 };
 
 const styles = StyleSheet.create({

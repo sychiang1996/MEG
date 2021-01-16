@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button, TextInput } from 'react-native';
+import MessageBubble from '../Components'
 import { sendPOSTRequest } from '../requests';
 
 function Megan() {
@@ -10,9 +11,12 @@ function Megan() {
                 <Text>Megan</Text>
             </SafeAreaView>
 
-            <View style={styles.mainArea}>
-                <Text>Main Text Area</Text>
-            </View>
+            <SafeAreaView style={styles.mainArea}>
+                <MessageBubble
+                    mine
+                    text='Hello!'
+                />
+            </SafeAreaView>
 
             <View style={styles.bottomBar}>
                 <Button
@@ -44,8 +48,6 @@ const styles = StyleSheet.create({
     mainArea: {
         flex: 9,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center'
     },
 });
 
