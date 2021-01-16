@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Button } from 'react-native';
-import sendGETRequest from '../requests';
+import { StyleSheet, Text, View, SafeAreaView, Button, TextInput } from 'react-native';
+import { sendPOSTRequest } from '../requests';
 
 function Megan() {
-    var response;
+
     return (
         <View style={styles.container}>
             <SafeAreaView style={styles.topBar}>
@@ -12,14 +12,12 @@ function Megan() {
 
             <View style={styles.mainArea}>
                 <Text>Main Text Area</Text>
-                <Text>{response}</Text>
             </View>
 
             <View style={styles.bottomBar}>
-                <Button 
-                onPress={sendGETRequest} 
-                title='Hi'
-                color='#fff'
+                <Button
+                onPress={sendPOSTRequest}
+                title="POST"
                 />
             </View>
         </View>
@@ -33,22 +31,34 @@ const styles = StyleSheet.create({
     },
     topBar: {
         flex: 1,
-        backgroundColor: 'gray',
+        backgroundColor: 'lightblue',
         alignItems: 'center',
         justifyContent:'center'
     },
     bottomBar: {
-        flex: 3,
-        backgroundColor: 'gray',
+        flex: 4,
+        backgroundColor: 'lightblue',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     mainArea: {
-        flex: 12,
+        flex: 9,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
     },
 });
+
+const UselessTextInput = () => {
+    const [value, onChangeText] = React.useState('Type here');
+
+    return (
+        <TextInput
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1}}
+        onChangeText={text => onChangeText(text)}
+        value={value}
+        />
+    )
+};
 
 export default Megan;
