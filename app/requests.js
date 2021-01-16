@@ -1,28 +1,17 @@
-//XMLHttpRequest GET
-const xhr = new XMLHttpRequest();
-const url = 'http://dummy.url';
+function sendGETRequest() {
+    const url = 'https://meg-backend-46.herokuapp.com/Megan/';
+  
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = 'json';
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          let response = xhr.response;
+          console.log(JSON.stringify(response));
+        }
+    };
+  
+    xhr.open('GET', url);
+    xhr.send()
+}
 
-xhr.responseType = 'json';
-xhr.onreadystatechange = () => {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-        // Code
-    }
-};
-
-xhr.open('GET', url);
-xhr.send()
-
-//XMLHttpRequest POST
-const xhr = new XMLHttpRequest();
-const url = 'http://dummy.url';
-const data = JSON.stringify({id: '200'});
-
-xhr.responseType = 'json';
-xhr.onreadystatechange = () => {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-        // Code
-    }
-};
-
-xhr.open('POST', url);
-xhr.send(data)
+export default sendGETRequest;
