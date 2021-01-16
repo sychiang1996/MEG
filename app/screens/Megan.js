@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button, TextInput } from 'react-native';
-import MessageBubble from '../Components'
+import MessageBubble from '../Components';
 import { sendPOSTRequest } from '../requests';
 
 function Megan() {
@@ -13,8 +13,8 @@ function Megan() {
 
             <SafeAreaView style={styles.mainArea}>
                 <MessageBubble
-                    mine
-                    text='Hello!'
+                mine
+                text='Hello World!'
                 />
             </SafeAreaView>
 

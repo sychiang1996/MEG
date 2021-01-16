@@ -4,7 +4,7 @@ import { sendGETRequest } from '../requests';
 
 const image = { uri: 'https://www.lovethegarden.com/sites/default/files/styles/header_image_xl/public/content/articles/UK_advice-lawn-care-maintenance-lawn-feeding-explained_header.jpg?itok=q4dr1OMk' };
 
-function LoadingScreen(prps) {
+function LoadingScreen() {
     sendGETRequest();
     return (
         <View style={styles.container}>
