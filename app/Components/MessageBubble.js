@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     },
     text: {
         paddingTop: 3,
-        fontSize: 17,
+        fontSize: 14,
         lineHeight: 22
     },
     arrow_container: {

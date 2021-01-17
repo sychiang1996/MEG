@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ImageBackground } from 'react-native';
-import { sendGETRequest } from '../requests';
+import { sendGETRequest } from '../Components/requests';
 
 const image = { uri: 'https://www.lovethegarden.com/sites/default/files/styles/header_image_xl/public/content/articles/UK_advice-lawn-care-maintenance-lawn-feeding-explained_header.jpg?itok=q4dr1OMk' };
 

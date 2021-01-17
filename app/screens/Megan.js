@@ -1,22 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Button, TextInput } from 'react-native';
-import MessageBubble from '../Components';
-import { sendPOSTRequest } from '../requests';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, Button, TextInput } from 'react-native';
+import MessageBubble from '../Components/MessageBubble';
+import { sendGETRequest, sendPOSTRequest } from '../Components/requests';
 
 function Megan() {
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <SafeAreaView style={styles.topBar}>
-                <Text>Megan</Text>
+                <Text style={styles.text}>Megan</Text>
             </SafeAreaView>
 
-            <SafeAreaView style={styles.mainArea}>
-                <MessageBubble
-                mine
-                text='Hello World!'
-                />
-            </SafeAreaView>
+            <ScrollView style={styles.mainArea}>
+                
+            </ScrollView>
 
             <View style={styles.bottomBar}>
                 <Button
@@ -24,7 +22,8 @@ function Megan() {
                 title="POST"
                 />
             </View>
-        </View>
+            <StatusBar style='dark'/>
+        </SafeAreaView>
     );
 }
 
@@ -33,20 +32,25 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff'
     },
+    text: {
+        fontSize: 14
+    },
     topBar: {
-        flex: 1,
+        height: '10%',
+        width: '100%',
         backgroundColor: 'lightblue',
         alignItems: 'center',
         justifyContent:'center'
     },
     bottomBar: {
-        flex: 4,
+        height: '20%',
+        width: '100%',
         backgroundColor: 'lightblue',
         alignItems: 'center',
         justifyContent: 'center',
     },
     mainArea: {
-        flex: 9,
+        flex: 3,
         backgroundColor: '#fff',
     },
 });
