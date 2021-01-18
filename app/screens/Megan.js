@@ -1,13 +1,17 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, TextInput, Pressable } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, TextInput, Pressable, Button } from 'react-native';
 import MessageBubble from '../Components/MessageBubble';
 import { sendGETRequest, sendPOSTRequest } from '../Components/requests';
 
 function Megan() {
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
+            <View style={styles.topBar}>
+
+            </View>
+
             <ScrollView style={styles.mainArea}>
                 <MessageBubble
                 mine
@@ -36,17 +40,38 @@ function Megan() {
                 <MessageBubble
                 text='messages'
                 />
+                <MessageBubble
+                text='messages'
+                />
+                <MessageBubble
+                text='messages'
+                />
+                <MessageBubble
+                text='messages'
+                />
+                <MessageBubble
+                text='messages'
+                />
+                <MessageBubble
+                text='messages'
+                />
+                <MessageBubble
+                text='messages'
+                />
+                <MessageBubble
+                text='messages'
+                />
             </ScrollView>
 
             <View style={styles.bottomBar}>
-                <Pressable
+                <Button
+                    style={styles.text}
                     onPress={sendPOSTRequest}
-                >
-                    <Text style={styles.text}>Hi there</Text>
-                </Pressable>
+                    title='Hello!'
+                />
             </View>
             <StatusBar style='dark'/>
-        </SafeAreaView>
+        </View>
     );
 }
 
@@ -58,16 +83,23 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 14
     },
-    bottomBar: {
-        height: '20%',
+    topBar: {
+        height: 85,
         width: '100%',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#1c1c1e',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    bottomBar: {
+        height: 45,
+        width: '100%',
+        backgroundColor: '#1c1c1e',
         alignItems: 'center',
         justifyContent: 'center',
     },
     mainArea: {
         flex: 3,
-        backgroundColor: '#fff',
+        backgroundColor: '#000000',
     },
 });
 

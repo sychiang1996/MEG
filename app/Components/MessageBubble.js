@@ -13,7 +13,7 @@ class MessageBubble extends React.Component {
                 <View style={[
                     styles.cloud,
                     {
-                        backgroundColor: this.props.mine ? '#dddddd' : '#007aff'
+                        backgroundColor: this.props.mine ? '#2a9d8f' : '#f4a261'
                     }
                 ]}>
                     {
@@ -33,7 +33,7 @@ class MessageBubble extends React.Component {
                             <Text style={[
                                 styles.text,
                                 {
-                                    color: this.props.mine ? 'black' : 'white'
+                                    color: this.props.mine ? 'black' : 'black'
                                 }
                             ]}
                             >
@@ -60,7 +60,7 @@ class MessageBubble extends React.Component {
                                     :
                                     "M48,35c-7-4-6-8.75-6-17.5C28,17.5,29,35,48,35z"
                                 }
-                                fill={this.props.mine ? '#dddddd' : '#007aff'}
+                                fill={this.props.mine ? '#2a9d8f' : '#f4a261'}
                                 x='0'
                                 y='0'
                             />
@@ -78,23 +78,23 @@ const styles = StyleSheet.create({
         marginVertical: moderateScale(7, 2)
     },
     mine: {
-        marginLeft: 20
+        marginLeft: 10
     },
     not_mine: {
         alignSelf: 'flex-end',
-        marginRight: 20
+        marginRight: 10
     },
     cloud: {
         maxWidth: moderateScale(250, 2),
         paddingHorizontal: moderateScale(10, 2),
-        paddingTop: moderateScale(5, 2),
-        paddingBottom: moderateScale(7, 2),
+        paddingTop: moderateScale(2, 2),
+        paddingBottom: moderateScale(5, 2),
         borderRadius: 20
     },
     text: {
         paddingTop: 3,
         fontSize: 14,
-        lineHeight: 22
+        lineHeight: 20
     },
     arrow_container: {
         position: 'absolute',
