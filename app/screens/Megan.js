@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, ScrollView, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, TextInput, Pressable } from 'react-native';
 import MessageBubble from '../Components/MessageBubble';
 import { sendGETRequest, sendPOSTRequest } from '../Components/requests';
 
@@ -8,19 +8,42 @@ function Megan() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <SafeAreaView style={styles.topBar}>
-                <Text style={styles.text}>Megan</Text>
-            </SafeAreaView>
-
             <ScrollView style={styles.mainArea}>
-                
+                <MessageBubble
+                mine
+                text='Hello World!'
+                />
+                <MessageBubble
+                text='what'
+                />
+                <MessageBubble
+                text='if'
+                />
+                <MessageBubble
+                text='i'
+                />
+                <MessageBubble
+                mine
+                text='have'
+                />
+                <MessageBubble
+                mine
+                text='many'
+                />
+                <MessageBubble
+                text='many'
+                />
+                <MessageBubble
+                text='messages'
+                />
             </ScrollView>
 
             <View style={styles.bottomBar}>
-                <Button
-                onPress={sendPOSTRequest}
-                title="POST"
-                />
+                <Pressable
+                    onPress={sendPOSTRequest}
+                >
+                    <Text style={styles.text}>Hi there</Text>
+                </Pressable>
             </View>
             <StatusBar style='dark'/>
         </SafeAreaView>
@@ -34,13 +57,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 14
-    },
-    topBar: {
-        height: '10%',
-        width: '100%',
-        backgroundColor: 'lightblue',
-        alignItems: 'center',
-        justifyContent:'center'
     },
     bottomBar: {
         height: '20%',
