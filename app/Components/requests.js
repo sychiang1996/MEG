@@ -14,13 +14,9 @@ export function sendGETRequest() {
     })
 };
 
-export function sendPOSTRequest() {
+export function sendPOSTRequest(body) {
     const url = 'https://meg-backend-46.herokuapp.com/Megan/';
-    const data = JSON.stringify({
-        "stage": "1",
-        "response_type": "closed",
-        "text": "None"
-    });
+    const data = JSON.stringify(body);
 
     fetch(url, {
         method: 'POST',

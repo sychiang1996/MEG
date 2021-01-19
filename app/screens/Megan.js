@@ -66,7 +66,11 @@ function Megan() {
             <View style={styles.bottomBar}>
                 <Button
                     style={styles.text}
-                    onPress={sendPOSTRequest}
+                    onPress={sendPOSTRequest({
+                        "stage": "1",
+                        "response_type": "closed",
+                        "text": "None"
+                    })}
                     title='Hello!'
                 />
             </View>
