@@ -5,7 +5,7 @@ import MenuPage from './app/screens/MenuPage';
 import Megan from './app/screens/Megan';
 
 export default function App() {
-  return <Megan />;
+  return <MenuPage />;
 };
 
 const styles = StyleSheet.create({

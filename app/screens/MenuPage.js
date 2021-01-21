@@ -48,8 +48,7 @@ const styles = StyleSheet.create({
         width: 340
     },
     touchable: {
-        flex: 1,
-        padding: 15
+        padding: 5
     },
     topBar: {
         height: 85,
@@ -59,7 +58,8 @@ const styles = StyleSheet.create({
     mainArea: {
         flex: 111,
         backgroundColor: '#121212',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'flex-start'
     },
 });
 
