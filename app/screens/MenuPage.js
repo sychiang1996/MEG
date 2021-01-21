@@ -52,14 +52,14 @@ const styles = StyleSheet.create({
         padding: 15
     },
     topBar: {
-        flex: 17,
+        height: 85,
+        width: '100%',
         backgroundColor: '#1c1c1e',
     },
     mainArea: {
         flex: 111,
         backgroundColor: '#121212',
-        alignItems: 'center',
-        justifyContent: 'center'
+        alignItems: 'center'
     },
 });
 
