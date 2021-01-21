@@ -1,4 +1,5 @@
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Image } from 'react-native';
 import { sendGETRequest } from '../Components/requests';
 
@@ -6,10 +7,13 @@ function LoadingScreen() {
     sendGETRequest();
     return (
         <View style={styles.container}>
-            <Image
-                style={styles.logo}
-                source={require('../assets/logo.png')}
-            />
+            <View style={styles.bg}>
+                <Image
+                    style={styles.logo}
+                    source={require('../assets/logo.png')}
+                />
+            </View>            
+            <StatusBar style='dark'/>
         </View>
     );
 }
@@ -17,6 +21,13 @@ function LoadingScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#121212',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    bg: {
+        height: '100%',
+        width: '100%',
         backgroundColor: '#E29578',
         alignItems: 'center',
         justifyContent: 'center'

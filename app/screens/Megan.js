@@ -82,7 +82,7 @@ function Megan() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#121212'
     },
     text: {
         fontSize: 14
