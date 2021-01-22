@@ -2,8 +2,9 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Image } from 'react-native';
 import { sendGETRequest } from '../Components/requests';
+import { NavigationContainer } from '@react-navigation/native';
 
-function LoadingScreen() {
+function LoadingScreen({ navigation }) {
     sendGETRequest();
     return (
         <View style={styles.container}>
@@ -20,7 +21,7 @@ function LoadingScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff'
+        backgroundColor: '#121212'
     },
     bg: {
         height: '100%',

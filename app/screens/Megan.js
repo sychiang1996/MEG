@@ -1,24 +1,15 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, ScrollView, TextInput, Text, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Platform, View, ScrollView, KeyboardAvoidingView, TextInput, Text, TouchableOpacity, Image } from 'react-native';
 import MessageBubble from '../Components/MessageBubble';
 import { sendGETRequest, sendPOSTRequest } from '../Components/requests';
+import { NavigationContainer } from '@react-navigation/native';
 
-function Megan() {
+function Megan({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <View style={styles.topBar}>
-                <TouchableOpacity
-                onPress={dummyFunc}>
-                    <Image
-                    style={styles.menuButton}                   
-                    source={require('../assets/MenuButton.png')}
-                    />
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.mainArea}>
+            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.mainArea}>
                 <ScrollView style={styles.scrollview}>
                 
                 </ScrollView>
@@ -34,7 +25,7 @@ function Megan() {
                         />
                     </TouchableOpacity>
                 </View>
-            </View>            
+            </KeyboardAvoidingView>           
             <StatusBar style='dark'/>
         </View>
     );
@@ -43,16 +34,11 @@ function Megan() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#121212'
     },
     text: {
         fontSize: 14,
         color: '#fff'
-    },
-    topBar: {
-        height: 85,
-        width: '100%',
-        backgroundColor: '#1c1c1e'
     },
     mainArea: {
         flex: 111,
