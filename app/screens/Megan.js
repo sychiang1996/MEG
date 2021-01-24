@@ -9,8 +9,34 @@ const APIUrl = 'https://meg-backend-46.herokuapp.com/Megan/';
 function Megan({ navigation }) {
     const [stage, setStage] = useState(0);
     const [userInput, setUserInput] = useState('');
+    const [text, setText] = useState('');
 
-    const send = () => {
+    const start = () => {
+        const data = JSON.stringify({
+            'stage': '1',
+            'response_type': 'open',
+            'text': ''
+        });
+
+        fetch(APIUrl, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Request failed.');
+        }, networkError => console.log(networkError.message)
+        ).then(jsonResponse => {
+            console.log(jsonResponse);
+            setText(jsonResponse);
+        });
+    };
+
+    const askMegan = () => {
         const data = JSON.stringify({
             'stage': '4',
             'response_type': 'open',
@@ -34,13 +60,14 @@ function Megan({ navigation }) {
         });
     };
 
+    start();
     return (
         <View style={styles.container}>
             <View style={styles.mainArea}>
                 <ScrollView style={styles.scrollview}>
                     <MessageBubble
                     mine
-                    text='Hi!'
+                    text={text}
                     />
                 </ScrollView>
 
@@ -52,7 +79,7 @@ function Megan({ navigation }) {
                     />
 
                     <TouchableOpacity
-                    onPress={send}
+                    onPress={askMegan}
                     >
                         <Image
                         style={styles.sendButton}

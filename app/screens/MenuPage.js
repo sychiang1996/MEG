@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, ScrollView, Image, Pressable, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 function MenuPage({ navigation }) {
