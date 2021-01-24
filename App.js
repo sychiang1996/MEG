@@ -15,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator 
-        initialRouteName="Menu Page" 
+        initialRouteName="Loading Screen" 
         screenOptions={{
           headerStyle: {
             backgroundColor: '#1c1c1e',
@@ -25,7 +25,7 @@ export default function App() {
         <Stack.Screen 
           name="Loading Screen" 
           component={LoadingScreen}
-          options={{}}/>
+          options={{headerShown: false}}/>
 
         <Stack.Screen 
           name="Menu Page" 

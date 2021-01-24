@@ -1,11 +1,24 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, Image } from 'react-native';
-import { sendGETRequest } from '../Components/requests';
 import { NavigationContainer } from '@react-navigation/native';
 
+const APIUrl = 'https://meg-backend-46.herokuapp.com/Megan/';
+
 function LoadingScreen({ navigation }) {
-    sendGETRequest();
+    fetch(APIUrl, {
+        method: 'GET'
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Request failed.');
+    }, networkError => console.log(networkError.message)
+    ).then(jsonResponse => {
+        console.log(jsonResponse);
+        navigation.navigate('Menu Page');
+    });
+
     return (
         <View style={styles.container}>
             <View style={styles.bg}>

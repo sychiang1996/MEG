@@ -1,23 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Platform, View, ScrollView, KeyboardAvoidingView, TextInput, Text, TouchableOpacity, Image, Keyboard } from 'react-native';
 import MessageBubble from '../Components/MessageBubble';
-import { sendGETRequest, sendPOSTRequest } from '../Components/requests';
 import { NavigationContainer } from '@react-navigation/native';
 
+const APIUrl = 'https://meg-backend-46.herokuapp.com/Megan/';
+
 function Megan({ navigation }) {
+    const [stage, setStage] = useState(0);
+    const [userInput, setUserInput] = useState('');
+
+    const send = () => {
+        const data = JSON.stringify({
+            'stage': '4',
+            'response_type': 'open',
+            'text': userInput
+        });
+
+        fetch(APIUrl, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: data
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Request failed.');
+        }, networkError => console.log(networkError.message)
+        ).then(jsonResponse => {
+            console.log(jsonResponse);
+        });
+    };
 
     return (
         <View style={styles.container}>
             <View style={styles.mainArea}>
                 <ScrollView style={styles.scrollview}>
-                
+                    <MessageBubble
+                    mine
+                    text='Hi!'
+                    />
                 </ScrollView>
 
                 <KeyboardAvoidingView style={styles.replyBox}>
-                    <TextInput style={styles.textBox}></TextInput>
+                    <TextInput
+                    style={styles.textBox}
+                    onChangeText={text => setUserInput(text)}
+                    value={userInput}
+                    />
+
                     <TouchableOpacity
-                    onPress={dummyFunc}
+                    onPress={send}
                     >
                         <Image
                         style={styles.sendButton}
@@ -71,14 +106,6 @@ const styles = StyleSheet.create({
 
 const dummyFunc = () => {
     console.log('Hi!');
-};
-
-const query = () => {
-    sendPOSTRequest({
-        "stage": "1",
-        "response_type": "closed",
-        "text": "None"
-    });
 };
 
 export default Megan;
