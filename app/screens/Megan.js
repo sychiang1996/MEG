@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Platform, View, ScrollView, KeyboardAvoidingView, TextInput, Text, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Platform, View, ScrollView, KeyboardAvoidingView, TextInput, Text, TouchableOpacity, Image, Keyboard } from 'react-native';
 import MessageBubble from '../Components/MessageBubble';
 import { sendGETRequest, sendPOSTRequest } from '../Components/requests';
 import { NavigationContainer } from '@react-navigation/native';
@@ -9,12 +9,12 @@ function Megan({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.mainArea}>
+            <View style={styles.mainArea}>
                 <ScrollView style={styles.scrollview}>
                 
                 </ScrollView>
 
-                <View style={styles.replyBox}>
+                <KeyboardAvoidingView style={styles.replyBox}>
                     <TextInput style={styles.textBox}></TextInput>
                     <TouchableOpacity
                     onPress={dummyFunc}
@@ -24,8 +24,8 @@ function Megan({ navigation }) {
                         source={require('../assets/Send.png')}
                         />
                     </TouchableOpacity>
-                </View>
-            </KeyboardAvoidingView>           
+                </KeyboardAvoidingView>
+            </View>           
             <StatusBar style='dark'/>
         </View>
     );
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     mainArea: {
-        flex: 111,
+        flex: 1,
         backgroundColor: '#121212',
     },
     scrollview: {
@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#121212'
     },
     replyBox: {
-        flex: 0.1,
+        height: 55,
+        padding: 8,
         backgroundColor: '#1c1c1e',
         flexDirection: 'row',
         alignItems: 'center',
@@ -66,15 +67,6 @@ const styles = StyleSheet.create({
         height: 35,
         width: 35,
     },
-    menuButton: {
-        height: 30,
-        width: 30,
-        position: 'relative',
-        top: 40,
-        right: 0,
-        bottom: 15,
-        left: 15,
-    }
 });
 
 const dummyFunc = () => {

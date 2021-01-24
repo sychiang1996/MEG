@@ -18,8 +18,9 @@ export default function App() {
         initialRouteName="Menu Page" 
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#1c1c1e'
-          }
+            backgroundColor: '#1c1c1e',
+          },
+          headerTintColor: '#EDF6F9',
         }}>
         <Stack.Screen 
           name="Loading Screen" 
