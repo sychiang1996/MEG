@@ -67,16 +67,4 @@ const dummyFunc = () => {
     console.log('Hi!');
 }
 
-const chat = () => {
-    console.log('Chat!');
-}
-
-const monitor = () => {
-    console.log('Monitor!');
-}
-
-const wearable = () => {
-    console.log('Wearable!');
-}
-
 export default MenuPage;

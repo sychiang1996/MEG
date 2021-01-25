@@ -71,22 +71,13 @@ function Megan({ navigation }) {
                     />
                 </ScrollView>
 
-                <KeyboardAvoidingView style={styles.replyBox}>
-                    <TextInput
-                    style={styles.textBox}
-                    onChangeText={text => setUserInput(text)}
-                    value={userInput}
-                    />
-
+                <View style={styles.buttonBox}>
                     <TouchableOpacity
-                    onPress={askMegan}
+                    style={styles.touchable}
                     >
-                        <Image
-                        style={styles.sendButton}
-                        source={require('../assets/Send.png')}
-                        />
+                        <Text style={styles.text}>Hi</Text>
                     </TouchableOpacity>
-                </KeyboardAvoidingView>
+                </View>
             </View>           
             <StatusBar style='dark'/>
         </View>
@@ -117,6 +108,21 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-evenly'
+    },
+    buttonBox: {
+        height: 100,
+        backgroundColor: '#1c1c1e',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
+    },
+    touchable: {
+        height: 50,
+        width: 100,
+        borderRadius: 8,
+        backgroundColor: '#006D77',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     textBox: {
         height: 35,

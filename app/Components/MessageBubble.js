@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
     text: {
         paddingTop: 3,
         fontSize: 14,
-        lineHeight: 20
+        lineHeight: 20,
+        color: '#fff'
     },
     arrow_container: {
         position: 'absolute',

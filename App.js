@@ -29,8 +29,12 @@ export default function App() {
 
         <Stack.Screen 
           name="Menu Page" 
-          component={MenuPage} 
-          options={{}}/>
+          component={MenuPage}
+          options={{
+            headerTitle: 'Hello',
+            headerLeft: null,
+            gestureEnabled: false
+          }}/>
 
         <Stack.Screen 
           name="Megan" 
