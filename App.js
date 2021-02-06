@@ -9,6 +9,7 @@ import Megan from './app/screens/Megan';
 import SMM from './app/screens/SMM';
 import Wearable from './app/screens/Wearable';
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -29,8 +30,12 @@ export default function App() {
 
         <Stack.Screen 
           name="Menu Page" 
-          component={MenuPage} 
-          options={{}}/>
+          component={MenuPage}
+          options={{
+            headerTitle: 'Hello',
+            headerLeft: null,
+            gestureEnabled: false
+          }}/>
 
         <Stack.Screen 
           name="Megan" 
