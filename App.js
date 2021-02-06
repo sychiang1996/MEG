@@ -9,6 +9,7 @@ import Megan from './app/screens/Megan';
 import SMM from './app/screens/SMM';
 import Wearable from './app/screens/Wearable';
 
+
 const Stack = createStackNavigator();
 
 export default function App() {
