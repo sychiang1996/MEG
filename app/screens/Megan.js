@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 
 function Megan() {
@@ -24,14 +25,23 @@ function Megan() {
     }, [])
 
     return (
-        <GiftedChat
-        messages={messages}
-        onSend={messages => onSend(messages)}
-        user={{
-            _id: 1,
-        }}
-        />
+        <View style={styles.container}>
+            <GiftedChat
+            messages={messages}
+            onSend={messages => onSend(messages)}
+            user={{
+                _id: 1,
+            }}
+            />
+        </View>
     )
-}
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#121212'
+    }
+});
 
 export default Megan;
