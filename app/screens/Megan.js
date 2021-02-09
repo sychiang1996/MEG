@@ -11,15 +11,21 @@ function Megan() {
 
     const onSend = useCallback((messages = []) => {
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
+        
+        getMegan(APIUrl, ['4', 'open', messages[0]["text"]]);
     }, []);   
 
-    async function getMegan(url, body) {
+    async function getMegan(url, [stage, restype, text]) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
-            body: JSON.stringify(body)
+            body: JSON.stringify({
+                "stage": stage,
+                "response_type": restype,
+                "text": text
+            })
         }).then(response => {
             if (response.ok) {
                 return response.json();
@@ -36,18 +42,14 @@ function Megan() {
                     name: 'Megan',
                     avatar: require('C:/Users/atwb9/FYP/MEG/app/assets/logo.png')
                 }
-            }
+            };
             setMessages(previousMessages => GiftedChat.append(previousMessages, message));
+            return true;
         });
     }
 
     if (!appReady) {
-        const data = {
-            "stage": "1",
-            "response_type": "closed",
-            "text": "None"
-        };
-        getMegan(APIUrl, data);
+        getMegan(APIUrl, ['3', 'closed', 'None']);
         setAppReady(true);
     }
 
