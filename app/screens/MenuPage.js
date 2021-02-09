@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Component, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity, BackHandler, ToastAndroid } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 
 function MenuPage({ navigation }) {
+    useEffect(() => {
+        BackHandler.addEventListener('hardwareBackPress', () => true)
+        return () =>
+            BackHandler.removeEventListener('hardwareBackPress', () => true)
+    }, []);
 
     return (
         <View style={styles.container}>

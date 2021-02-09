@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
+import { NavigationContainer } from '@react-navigation/native';
 
 const APIUrl = 'https://meg-backend-46.herokuapp.com/Megan/';
 
