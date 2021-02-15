@@ -40,7 +40,7 @@ function Megan() {
                 user: {
                     _id: 2,
                     name: 'Megan',
-                    avatar: require('C:/Users/atwb9/FYP/MEG/app/assets/logo.png')
+                    avatar: require('C:/Users/atwb9/FYP/MEG/app/assets/MeganAvatar.png')
                 }
             };
             setMessages(previousMessages => GiftedChat.append(previousMessages, message));
