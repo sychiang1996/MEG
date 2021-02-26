@@ -10,17 +10,18 @@ function Megan() {
 
     const onSend = useCallback((messages = []) => {
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
+        getReply(APIUrl, messages);
     }, []);
 
-    async function getMegan(url, text) {
+    async function getReply(url, text) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                "stage": '1',
-                "response_type": 'closed',
+                "user_id": "1",
+                "function": "message",
                 "text": text
             })
         }).then(response => {
@@ -44,6 +45,43 @@ function Megan() {
             return true;
         });
     }
+
+    async function sendMessage(url, text) {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "user_id": "1",
+                "function": "message",
+                "text": text
+            })
+        }).then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Request failed.');
+        }, networkError => console.log(networkError.message)
+        ).then(jsonResponse => {
+            let message = {
+                _id: Math.floor(Math.random() * 100),
+                text: jsonResponse,
+                createdAt: new Date(),
+                user: {
+                    _id: 2,
+                    name: 'Megan',
+                    avatar: require('C:/Users/atwb9/FYP/MEG/app/assets/MeganAvatar.png')
+                }
+            }
+            setMessages(previousMessages => GiftedChat.append(previousMessages, message));
+            return true;
+        });
+    }
+
+    useEffect(() => {
+        getReply(APIUrl);
+    })
 
     return (
         <View style={styles.container}>
