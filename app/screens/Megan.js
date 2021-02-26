@@ -7,23 +7,20 @@ const APIUrl = 'https://meg-backend-46.herokuapp.com/Megan/';
 
 function Megan() {
     const [messages, setMessages] = useState([]);
-    const [appReady, setAppReady] = useState(false);
 
     const onSend = useCallback((messages = []) => {
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
-        
-        getMegan(APIUrl, ['4', 'open', messages[0]["text"]]);
-    }, []);   
+    }, []);
 
-    async function getMegan(url, [stage, restype, text]) {
+    async function getMegan(url, text) {
         const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify({
-                "stage": stage,
-                "response_type": restype,
+                "stage": '1',
+                "response_type": 'closed',
                 "text": text
             })
         }).then(response => {
@@ -34,7 +31,7 @@ function Megan() {
         }, networkError => console.log(networkError.message)
         ).then(jsonResponse => {
             let message = {
-                _id: 2,
+                _id: Math.floor(Math.random() * 100),
                 text: jsonResponse,
                 createdAt: new Date(),
                 user: {
@@ -42,15 +39,10 @@ function Megan() {
                     name: 'Megan',
                     avatar: require('C:/Users/atwb9/FYP/MEG/app/assets/MeganAvatar.png')
                 }
-            };
+            }
             setMessages(previousMessages => GiftedChat.append(previousMessages, message));
             return true;
         });
-    }
-
-    if (!appReady) {
-        getMegan(APIUrl, ['3', 'closed', 'None']);
-        setAppReady(true);
     }
 
     return (
