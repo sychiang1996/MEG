@@ -27,36 +27,27 @@ function SMM({ navigation }) {
         {'\nTime: '}{item.time}
         {'\nPost: '}{item.post}
         {'\n'}
-        <Button
-    onPress={null}
-    title="Rate Post"
-    color="#123456"
-    accessibilityLabel="To rate severity of post"
-    /><Button
-    onPress={null}
-    title="Get Help"
-    color="#654321"
-    accessibilityLabel="To get assistance"
-    />
+        <TouchableOpacity
+        style={styles.buttonStyle}
+    onPress={null}>
+    <Text>Rate Post</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+        style={styles.buttonStyle}
+    onPress={null}>
+    <Text>Get Help</Text>
+    </TouchableOpacity>
         </Text>}
       />
-    /*<Button
-    onPress={null}
-    title="Rate Post"
-    color="#123456"
-    accessibilityLabel="To rate severity of post"
-    />
     <Button
     onPress={null}
     title="Get Help"
-    color="#654321"
+    color="#83C5BE"
     accessibilityLabel="To get assistance"
-    />*/
-      </View>
+    /></View>
+      
       
     </View>
-            
-        //</View>
     );
 }
 
@@ -79,6 +70,19 @@ const styles = StyleSheet.create({
         alignItems: 'left',
         //justifyContent: 'flex-start'
     },
+    buttonStyle: {
+    //marginTop:10,
+    paddingTop:5,
+    paddingBottom:5,
+    marginLeft:5,
+    paddingLeft:10,
+    paddingRight:10,
+    marginRight:5,
+    backgroundColor:'#83C5BE',
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff'
+  },
 });
 
 const dummyFunc = () => {
