@@ -6,8 +6,9 @@ import { NavigationContainer } from '@react-navigation/native';
 const APIUrl = 'https://meg-backend-46.herokuapp.com/Megan/';
 
 function Megan() {
+    const [firstStart, setFirstStart] = useState(true);
     const [messages, setMessages] = useState([]);
-    const [userID, setUserID] = useState(Math.floor(Math.random() * 1000).toString())
+    const [userID, setUserID] = useState(Math.floor(Math.random() * 100000000).toString())
 
     const onSend = useCallback((messages = []) => {
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
@@ -45,6 +46,11 @@ function Megan() {
             setMessages(previousMessages => GiftedChat.append(previousMessages, message));
             return true;
         });
+    }
+
+    if (firstStart) {
+        getReply(APIUrl, userID, "Wake up!");
+        setFirstStart(false);
     }
 
     return (
