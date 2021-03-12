@@ -22,6 +22,7 @@ function SMM({ navigation }) {
           {date: '1/8/2019',time:"08:08:08 pm",post:"Long live Augustus"},
           {date: '31/7/2019',time:"08:08:08 am",post:"Death to Julius"},
         ]}
+        ItemSeparatorComponent = {renderSeparator}
         renderItem={({item}) => <Text style={styles.text}>
         {'Date: '}{item.date}
         {'\nTime: '}{item.time}
@@ -39,12 +40,9 @@ function SMM({ navigation }) {
     </TouchableOpacity>
         </Text>}
       />
-    <Button
-    onPress={null}
-    title="Get Help"
-    color="#83C5BE"
-    accessibilityLabel="To get assistance"
-    /></View>
+    <TouchableOpacity style={styles.buttonStyle}
+    onPress={null}><Text>Get Help</Text></TouchableOpacity>
+    </View>
       
       
     </View>
@@ -67,8 +65,14 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 8,
         backgroundColor: '#121212',
-        alignItems: 'left',
-        //justifyContent: 'flex-start'
+        alignItems: 'center',
+        
+    },
+    postBorder:{
+        borderRadius:10,
+        borderWidth: 1,
+        borderColor: '#fff',
+        backgroundColor:'#83C5BE',
     },
     buttonStyle: {
     //marginTop:10,
@@ -84,6 +88,18 @@ const styles = StyleSheet.create({
     borderColor: '#fff'
   },
 });
+
+const renderSeparator = () => {
+    return (
+      <View
+        style={{
+            borderRadius:10,
+            borderWidth: 2,
+            borderColor: '#fff',
+            backgroundColor:'#83C5BE',
+        }}
+      />
+    )};
 
 const dummyFunc = () => {
     console.log('Hi!');
